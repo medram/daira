@@ -1,0 +1,15 @@
+{% if item.type == 1 %}
+	{% if item.path == '/' %}
+		<li class="nav-item {% if item.path == request.path %} active {% endif %}">
+			<a class="nav-link" href="/">{{ item.name|title }}</a>
+		</li>
+	{% else %}
+		<li class="nav-item {% if item.path in request.path %} active {% endif %}">
+			<a class="nav-link" href="{{ item.path }}">{{ item.name|title }}</a>
+		</li>
+	{% endif %}
+{% elif item.type == 2 %}
+	<li class="nav-item {% if item.page.slug in request.path %} active {% endif %}">
+		<a class="nav-link" href="{{ item.page.slug }}">{{ item.name|title }}</a>
+	</li>
+{% endif %}

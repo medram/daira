@@ -1,0 +1,13 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% load extra_settings %}
+
+{% block branding %}
+<h1 class="head">
+	<a href="{% url 'admin:index' %}"><b>{% get_setting 'SITE_NAME' default='Logo' %}</b> <small>v1.0</small></a>
+</h1>
+{% endblock %}
+
+{% block extrastyle %}
+	<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}

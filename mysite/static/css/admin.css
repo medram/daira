@@ -1,0 +1,69 @@
+/*
+	color1 #34495e
+	color2 #8e44ad
+*/
+a:link,
+a:visited {
+	color: #8e44ad;
+}
+
+#header {
+	height: 40px;
+	background-color: #8e44ad;
+	color: #FFF;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+	color: #FFF;
+}
+
+#user-tools {
+	font-size: 13px;
+}
+
+#user-tools a:focus, #user-tools a:hover {
+	border-bottom-color: #FFF;
+	color: #FFF;
+}
+
+
+.module h2, .module caption, .inline-group h2 {
+	background-color: #8e44ad;
+}
+
+div.breadcrumbs {
+	background-color: #9b59b6;
+
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+	background-color: #9b59b6;
+}
+
+.button:active, input[type=submit]:active, input[type=button]:active, .button:focus, input[type=submit]:focus, input[type=button]:focus, .button:hover, input[type=submit]:hover, input[type=button]:hover {
+	background-color: #8e44ad;
+}
+
+td, th {
+	vertical-align: middle;
+}
+
+.object-tools a.addlink {
+	background-color: #6ab04c;
+}
+
+.object-tools a.addlink:hover {
+	background-color: #5a9641;
+}
+
+/*.button.default, input[type=submit].default, .submit-row input.default {
+	background-color: #686de0;
+}
+
+.button.default:active, input[type=submit].default:active, .button.default:focus, input[type=submit].default:focus, .button.default:hover, input[type=submit].default:hover {
+	background-color: #4834d4;
+}*/
+
+.inline-group .tabular tr.has_original td {
+	vertical-align: top;
+}

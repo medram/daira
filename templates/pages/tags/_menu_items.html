@@ -1,0 +1,12 @@
+{% load pages_tags %}
+{% for item in items %}
+	{% if item.visibility == 1 %}
+		{% render_menu_item item %}
+	{% elif item.visibility == 2 and not request.user.is_authenticated %}
+		{% render_menu_item item %}
+	{% elif item.visibility == 3 and request.user.is_authenticated %}
+		{% render_menu_item item %}
+	{% elif item.visibility == 4 and request.user.is_superuser %}
+		{% render_menu_item item %}
+	{% endif %}
+{% endfor %}

@@ -1,0 +1,38 @@
+<div class="jumbotron {{ class }}">
+  <div class="container text-center">
+    {% if h1 %}
+      <h1 class="display-3">{{ h1 }}</h1>
+    {% endif %}
+    {% if p %}
+      <p>{{ p }}</p>
+    {% endif %}
+    <form class="row" action="{% url 'classifier:search' %}" method="GET" >
+      <div class="col-md-5">
+        <input class="form-control mb-3 mb-md-0" name="q" placeholder="Search keywords..." value="{{ values.q }}" >
+      </div>
+      <div class="col-md-2">
+        <select name="city" class="form-control custom-select mb-3 mb-md-0">
+          <option value="0">--- All Cities ---</option> 
+          {% for city in cities %}
+         		<option value="{{ city.pk }}" {% if values.city == city.pk|slugify %}selected{% endif %} >{{ city.name }}</option> 
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select name="category" class="form-control custom-select mb-3 mb-md-0">
+          <option value="0">--- All Categories ---</option>
+          {% for category in categories %}
+          	{% if category.parent_cat %}
+            		<option value="{{ category.pk }}" {% if values.category == category.pk|slugify %}selected{% endif %} >- {{ category.name }}</option>
+          	{% else %}
+            		<option value="{{ category.pk }}" {% if values.category == category.pk|slugify %}selected{% endif %} class="select-category" >{{ category.name }}</option>
+          	{% endif %}
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-success btn-block" role="button"><i class="fas fa-search fa-fw"></i> Search</button>
+      </div>
+    </form>
+  </div>
+</div>
