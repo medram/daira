@@ -8,7 +8,6 @@ a:visited {
 }
 
 #header {
-	height: 40px;
 	background-color: #8e44ad;
 	color: #FFF;
 }
@@ -44,10 +43,6 @@ div.breadcrumbs {
 	background-color: #8e44ad;
 }
 
-td, th {
-	vertical-align: middle;
-}
-
 .object-tools a.addlink {
 	background-color: #6ab04c;
 }
@@ -64,6 +59,57 @@ td, th {
 	background-color: #4834d4;
 }*/
 
+/* ######################### bunch of Admin UI fixes ######################### */
+#header {
+	padding: 15px 40px;
+}
+
+td, th {
+	vertical-align: middle;
+	font-size: 15px;
+}
+
 .inline-group .tabular tr.has_original td {
 	vertical-align: top;
 }
+
+caption {
+	caption-side: unset;
+}
+
+#changelist #toolbar form #searchbar {
+	height: 29px !important;
+}
+
+label {
+	margin-bottom: 0px;
+}
+
+.submit-row a.deletelink {
+	height: auto !important;
+}
+
+body {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
+}
+
+.filtered .actions {
+	margin-bottom: 10px !important;
+}
+
+.inline-group .tabular fieldset.module .form-row {
+	display: table-row;
+	flex-wrap: unset;
+	margin-right: 0;
+    margin-left: 0;
+}
+
+.inline-group .tabular fieldset.module .empty-form {
+	display: none !important;
+}
+
+.inline-group .tabular td.original p {
+	height: auto !important;
+}
+
+/* ######################### End of bunch of Admin UI fixes ######################### */

@@ -41,6 +41,7 @@ class SoknaRequest(models.Model):
 
 	class Meta:
 		db_table = 'sokna_requests'
+		verbose_name = 'sokna submission'
 
 	def __str__(self):
 		return f'{self.firstname} {self.lastname} ({self.CIN})'
