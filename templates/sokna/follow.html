@@ -1,0 +1,47 @@
+{% extends "tpls/_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+	<div class="row mt-5">
+		<div class="col-md-12">
+			{% include "tpls/_messages.html" %}
+		</div>
+	</div>
+	<div class="row my-5">		
+		{% if sokna_request %}
+			<h1 class="text-muted mb-3">Hi {{ sokna_request.firstname }} {{ sokna_request.lastname }}</h1>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Status</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ sokna_request.pk }}</td>
+						<td>{{ sokna_request.get_status_display }}</td>
+						{% if sokna_request.notes %}
+							<td>{{ sokna_request.notes }}</td>
+						{% else %}
+							<td></td>
+						{% endif %}
+					</tr>
+				</tbody>
+			</table>
+		{% else %}
+			<div class="card ml-auto mr-auto">
+				<h1 class="card-header bg-info text-white">Follow My Submission</h1>
+				<div class="card-body">
+					<form method='GET'>
+						{{ form|crispy }}
+						<button class="btn btn-block btn-info btn-lg">Check Now</button>
+					</form>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

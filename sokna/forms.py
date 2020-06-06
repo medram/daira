@@ -7,19 +7,22 @@ from crispy_forms.layout import Submit
 
 
 class SoknaRequestForm(forms.ModelForm):
-	
-	born = forms.DateField(widget=forms.DateInput(attrs={'placeholder':'dd/mm/yyyy', 'autocomplete': 'off'}), required=False)
+	born_d = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'dd', 'autocomplete': 'off', 'class': 'dateinput_d'}),
+								required=False, label='Day of birth')
+	born_m = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'mm', 'autocomplete': 'off', 'class': 'dateinput_m'}),
+								required=False, label='Month of birth')
+	born_y = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'yyyy', 'autocomplete': 'off', 'class': 'dateinput_y'}),
+								label='Year of birth')
+	born_no_d_m = forms.BooleanField(label='I don\'t have day & month of my birthday', required=False)
+
 	photo_1 = forms.ImageField(widget=forms.FileInput(), label='Front face of CIN')
 	photo_2 = forms.ImageField(widget=forms.FileInput(), label='Back face of CIN')
 
 	class Meta:
 		model = SoknaRequest
-		fields = ('firstname', 'lastname', 'CIN', 'born', 'gender', 'phone', 'address', 'mol7aka',
+		fields = ('firstname', 'lastname', 'CIN', 'born_d', 'born_m', 'born_y', 'born_no_d_m', 'gender', 'phone', 'address', 'mol7aka',
 			'photo_1', 'photo_2', 'terms_of_use')
-		widgets = {
-			'photo_1': forms.FileInput(),
-			'photo_2': forms.FileInput()
-		}
+		# widgets = {}
 
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
@@ -29,3 +32,7 @@ class SoknaRequestForm(forms.ModelForm):
 		# self.helper.form_tag = False
 		# self.helper.add_input(Submit('submit', 'Submit'))
 
+
+class FollowForm(forms.Form):
+	CIN = forms.CharField(label='CIN')
+	submission_code = forms.CharField()

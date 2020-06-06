@@ -1,0 +1,14 @@
+{% extends "tpls/_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+	<div class="row my-5 text-center">
+		<div class="col-md-12">
+			{% include "tpls/_messages.html" %}
+			You could follow your submission status using the following code:<br>
+			<span class="text-success" style="font-size: 1.9rem; font-weight: bold;">{{ code }}</span>
+		</div>
+	</div>
+</div>
+{% endblock %}
