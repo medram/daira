@@ -10,13 +10,13 @@
 	</div>
 	<div class="row my-5">		
 		{% if sokna_request %}
-			<h1 class="text-muted mb-3">Hi {{ sokna_request.firstname }} {{ sokna_request.lastname }}</h1>
+			<h1 class="text-muted mb-3"> مرحبا {{ sokna_request.firstname }} {{ sokna_request.lastname }}</h1>
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Status</th>
-						<th>Notes</th>
+						<th>حالة الطلب</th>
+						<th>ملاحظات</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -32,12 +32,12 @@
 				</tbody>
 			</table>
 		{% else %}
-			<div class="card ml-auto mr-auto">
-				<h1 class="card-header bg-info text-white">Follow My Submission</h1>
+			<div class="card ml-auto mr-auto w-50">
+				<h1 class="card-header bg-info text-white"> متابعة طلبي </h1>
 				<div class="card-body">
 					<form method='GET'>
 						{{ form|crispy }}
-						<button class="btn btn-block btn-info btn-lg">Check Now</button>
+						<button class="btn btn-block btn-info btn-lg">متابعة</button>
 					</form>
 				</div>
 			</div>

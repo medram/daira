@@ -8,7 +8,7 @@ class SoknaRequestAdmin(admin.ModelAdmin):
 	list_filter = ('created', 'gender', 'status')
 	search_fields = ('id', 'CIN', 'firstname', 'lastname')
 	date_hierarchy = 'created'
-	list_per_page = 5
+	# list_per_page = 5
 	fieldsets = (
 		(None, {
 				'fields': ('CIN', ('firstname', 'lastname'), ('born_d', 'born_m', 'born_y'), 'born_no_d_m', 'gender', 'phone', 'address', 'mol7aka')

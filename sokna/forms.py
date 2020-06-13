@@ -7,16 +7,27 @@ from crispy_forms.layout import Submit
 
 
 class SoknaRequestForm(forms.ModelForm):
-	born_d = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'dd', 'autocomplete': 'off', 'class': 'dateinput_d'}),
-								required=False, label='Day of birth')
-	born_m = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'mm', 'autocomplete': 'off', 'class': 'dateinput_m'}),
-								required=False, label='Month of birth')
-	born_y = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'yyyy', 'autocomplete': 'off', 'class': 'dateinput_y'}),
-								label='Year of birth')
-	born_no_d_m = forms.BooleanField(label='I don\'t have day & month of my birthday', required=False)
+	# born_d = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'dd', 'autocomplete': 'off', 'class': 'dateinput_d'}),
+	# 							required=False, label='Day of birth')
+	# born_m = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'mm', 'autocomplete': 'off', 'class': 'dateinput_m'}),
+	# 							required=False, label='Month of birth')
+	# born_y = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'yyyy', 'autocomplete': 'off', 'class': 'dateinput_y'}),
+	# 							label='Year of birth')
+	# born_no_d_m = forms.BooleanField(label='I don\'t have day & month of my birthday', required=False)
 
-	photo_1 = forms.ImageField(widget=forms.FileInput(), label='Front face of CIN')
-	photo_2 = forms.ImageField(widget=forms.FileInput(), label='Back face of CIN')
+	# photo_1 = forms.ImageField(widget=forms.FileInput(), label='Front face of CIN')
+	# photo_2 = forms.ImageField(widget=forms.FileInput(), label='Back face of CIN')
+
+	born_d = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'dd', 'autocomplete': 'off', 'class': 'dateinput_d'}),
+								required=False, label='يوم الإزدياد')
+	born_m = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'mm', 'autocomplete': 'off', 'class': 'dateinput_m'}),
+								required=False, label='شهر الإزدياد')
+	born_y = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'yyyy', 'autocomplete': 'off', 'class': 'dateinput_y'}),
+								label='سنة الإزدياد')
+	born_no_d_m = forms.BooleanField(label='لا أتوفر على يوم و شهر الإزدياد', required=False)
+
+	photo_1 = forms.ImageField(widget=forms.FileInput(), label='الجهة الأمامية  لبطاقة التعريف الوطنية')
+	photo_2 = forms.ImageField(widget=forms.FileInput(), label='الجهة الخلفية لبطاقة التعريف الوطنية')
 
 	class Meta:
 		model = SoknaRequest
