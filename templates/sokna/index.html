@@ -1,19 +1,18 @@
 {% extends "tpls/_base.html" %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
 {% block content %}
 <div class="container">
 	<div class="row my-5 text-center">
-		<div class="col-md-12 my-5">
-من عنا يمكنك طلب شهادة السكنة بكل سهولة و أريحية، وأيضا يمكنك متابعة طلبك و معرفة مائدا كان طلبك قد تم قبوله أو رفضه، <br> فالعملية لا تستغرق سوى بضع دقائق و يتم ذالك في بضعة خطوات
-		</div>
+		<div class="col-md-12 my-5">{% trans "sokna_description" %}</div>
 	</div>
 	<div class="row my-5 text-center">
 		<div class="col-md-6">
-			<a href="{% url 'sokna:register' %}" class="btn btn-info btn-lg btn-block"><i class="fas fa-fw fa-plus-circle"></i> تسجيل طلب جديد</a>
+			<a href="{% url 'sokna:register' %}" class="btn btn-info btn-lg btn-block"><i class="fas fa-fw fa-plus-circle"></i> {% trans "Request a new statement" %}</a>
 		</div>
 		<div class="col-md-6">
-			<a href="{% url 'sokna:follow' %}" class="btn btn-info btn-lg btn-block"><i class="fas fa-fw fa-question"></i> متابعة طلبي</a>
+			<a href="{% url 'sokna:follow' %}" class="btn btn-info btn-lg btn-block"><i class="fas fa-fw fa-question"></i> {% trans "Follow my statement" %}</a>
 		</div>
 	</div>
 </div>

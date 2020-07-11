@@ -1,10 +1,11 @@
 {% extends 'admin/base.html' %}
+{% load i18n %}
 {% load static %}
 {% load extra_settings %}
 
 {% block branding %}
 <h1 class="head">
-	<a href="{% url 'admin:index' %}"><b>{% get_setting 'SITE_NAME' default='Logo' %}</b> <small>v1.0</small></a>
+	<a href="{% url 'admin:index' %}"><b>{% get_setting 'APP_NAME' default='Logo' %}</b> <small>v{% get_setting 'APP_VERSION' %}</small></a>
 </h1>
 {% endblock %}
 
@@ -18,6 +19,12 @@
 {% endblock %}
 
 {% block footer %}
+    <div class="row" style="margin-right: 0px;">
+    	<div style="color: #555" class="col-md-12 my-5 py-3 text-center">
+            &copy; {% now 'Y' %} {% get_setting 'APP_NAME' default='Logo' %} (v{% get_setting 'APP_VERSION' %})<br>
+            Powred By <a href="{% get_setting 'POWRED_BY_URL' %}" target="_blank" style="text-decoration: underline">{% get_setting 'POWRED_BY' %}</a>
+        </div>
+    </div>
     <!-- JavaScript -->
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>

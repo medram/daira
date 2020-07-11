@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from .models import SoknaRequest
 
@@ -19,15 +20,15 @@ class SoknaRequestForm(forms.ModelForm):
 	# photo_2 = forms.ImageField(widget=forms.FileInput(), label='Back face of CIN')
 
 	born_d = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'dd', 'autocomplete': 'off', 'class': 'dateinput_d'}),
-								required=False, label='يوم الإزدياد')
+								required=False, label=_('Day of birth'))
 	born_m = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'mm', 'autocomplete': 'off', 'class': 'dateinput_m'}),
-								required=False, label='شهر الإزدياد')
+								required=False, label=_('Month of birth'))
 	born_y = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'yyyy', 'autocomplete': 'off', 'class': 'dateinput_y'}),
-								label='سنة الإزدياد')
-	born_no_d_m = forms.BooleanField(label='لا أتوفر على يوم و شهر الإزدياد', required=False)
+								label=_('Year of birth'))
+	born_no_d_m = forms.BooleanField(label=_('I don\'t have day & month of my birthday'), required=False)
 
-	photo_1 = forms.ImageField(widget=forms.FileInput(), label='الجهة الأمامية  لبطاقة التعريف الوطنية')
-	photo_2 = forms.ImageField(widget=forms.FileInput(), label='الجهة الخلفية لبطاقة التعريف الوطنية')
+	photo_1 = forms.ImageField(widget=forms.FileInput(), label=_('Front face of CIN'))
+	photo_2 = forms.ImageField(widget=forms.FileInput(), label=_('Back face of CIN'))
 
 	class Meta:
 		model = SoknaRequest
@@ -45,5 +46,5 @@ class SoknaRequestForm(forms.ModelForm):
 
 
 class FollowForm(forms.Form):
-	CIN = forms.CharField(label='CIN')
-	submission_code = forms.CharField()
+	CIN = forms.CharField(label=_('CIN'))
+	submission_code = forms.CharField(label=_('Statement Code'))

@@ -1,4 +1,4 @@
-const language = "en"
+const language = "fr"
 
 $('input.dateinput').datepicker({
     format: "dd/mm/yyyy",

@@ -1,15 +1,16 @@
 {% extends "tpls/_base.html" %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
 {% block content %}
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center my-5 display-4">
-			.إستمارة طلب شهادة السكنة
+			{% trans "Register a new Residential statement."  %}
 		</div>
 	</div>
 	<div class="row mt-5">
-		<div class="col-md-8">
+		<div class="col-md-8" {% if LANGUAGE_CODE == 'en' %}dir=ltr{% else %}dir=rtl{% endif %}>
 			<form method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 				<div class="form-row">
@@ -40,14 +41,14 @@
 
 				{{ form.terms_of_use|as_crispy_field }}
 
-				<button type="submit" class="btn btn-info mt-3 mb-5"><i class="fas fa-share"></i> تسجيل الطلب</button>
+				<button type="submit" class="btn btn-info mt-3 mb-5"><i class="fas fa-share"></i> {% trans "Register" %}</button>
 			</form>
 		</div>
 		<div class="col-md-4">
 			<div class="card">
-				<div class="card-header bg-info text-white"><i class="fas fa-info-circle"></i> ملاحظات</div>
+				<div class="card-header bg-info text-white"><i class="fas fa-info-circle"></i> {% trans "Notes" %}</div>
 				<div class="card-body">
-					تأكد من اتباع جميع مراحل الإجراء وتأكد من أن المعلومات التي تم إدخالها صحيحة قبل تقديم طلبك.
+					{% trans "Registration_Notes" %}
 				</div>
 			</div>
 		</div>

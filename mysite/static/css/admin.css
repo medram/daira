@@ -1,14 +1,15 @@
 /*
 	color1 #34495e
-	color2 #8e44ad
+	color2 #303960
+	#303960
 */
 a:link,
 a:visited {
-	color: #8e44ad;
+	color: #303960;
 }
 
 #header {
-	background-color: #8e44ad;
+	background-color: #303960;
 	color: #FFF;
 }
 
@@ -27,20 +28,20 @@ a:visited {
 
 
 .module h2, .module caption, .inline-group h2 {
-	background-color: #8e44ad;
+	background-color: #303960;
 }
 
 div.breadcrumbs {
-	background-color: #9b59b6;
+	background-color: #414e85;
 
 }
 
 .button, input[type=submit], input[type=button], .submit-row input, a.button {
-	background-color: #9b59b6;
+	background-color: #414e85;
 }
 
 .button:active, input[type=submit]:active, input[type=button]:active, .button:focus, input[type=submit]:focus, input[type=button]:focus, .button:hover, input[type=submit]:hover, input[type=button]:hover {
-	background-color: #8e44ad;
+	background-color: #303960;
 }
 
 .object-tools a.addlink {
@@ -49,6 +50,18 @@ div.breadcrumbs {
 
 .object-tools a.addlink:hover {
 	background-color: #5a9641;
+}
+
+.module caption, .inline-group h2 {
+	border-radius: 5px;
+}
+
+.module h2 {
+	border-radius: 5px 5px 0 0;
+}
+
+.selector-chosen h2 {
+    background: #414e85 !important;
 }
 
 /*.button.default, input[type=submit].default, .submit-row input.default {
@@ -110,6 +123,14 @@ body {
 
 .inline-group .tabular td.original p {
 	height: auto !important;
+}
+
+.delete-confirmation form .cancel-link {
+	height: auto !important;
+}
+
+*[dir=rtl] h1 {
+	float: right;
 }
 
 /* ######################### End of bunch of Admin UI fixes ######################### */

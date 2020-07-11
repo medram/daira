@@ -1,24 +1,22 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from django.utils.translation import gettext_lazy as _
 
 class Individual(models.Model):
 
-	UNKNOWN = 0
 	MALE = 1
 	FEMALE = 2
 
 	GENDER = [
-		(UNKNOWN, 'Unknown'),
-		(MALE, 'Male'),
-		(FEMALE, 'Female')
+		(MALE, _('Male')),
+		(FEMALE, _('Female'))
 	]
 
 	CIN 		= models.CharField(max_length=10, primary_key=True)
 	firstname 	= models.CharField(max_length=32)
 	lastname 	= models.CharField(max_length=32)
 	born 		= models.DateField(null=True, blank=True)
-	gender 		= models.IntegerField(choices=GENDER, default=UNKNOWN)
+	gender 		= models.IntegerField(choices=GENDER, default=MALE)
 	jobs		= models.ManyToManyField('Job', related_name='individuals') 
 	handicapped = models.BooleanField(default=False)
 
@@ -74,7 +72,7 @@ class Address(models.Model):
 
 
 	def __str__(self):
-		return f'{self.address} {self.street}'
+		return f'{self.address}'
 
 
 class City(models.Model):

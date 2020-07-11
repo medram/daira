@@ -30,8 +30,8 @@ class IndividualAdmin(admin.ModelAdmin):
 
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
-	list_display = ('__str__', 'city', 'zip_code')
-	search_fields = ('address', 'city', 'zip_code')
+	list_display = ('__str__', 'street', 'city', 'zip_code')
+	search_fields = ('address', 'street', 'city', 'zip_code')
 	exclude = ('individual',)
 
 @admin.register(City)

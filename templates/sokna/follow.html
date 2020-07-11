@@ -1,5 +1,7 @@
 {% extends "tpls/_base.html" %}
 {% load crispy_forms_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
 <div class="container">
@@ -8,15 +10,15 @@
 			{% include "tpls/_messages.html" %}
 		</div>
 	</div>
-	<div class="row my-5">		
+	<div class="row my-5" {% if LANGUAGE_CODE == 'ar' %}dir='rtl'{% else %}dir='ltr'{% endif %} >		
 		{% if sokna_request %}
-			<h1 class="text-muted mb-3"> مرحبا {{ sokna_request.firstname }} {{ sokna_request.lastname }}</h1>
+			<h1 class="text-muted mb-3"> {% trans "Hi" %} {{ sokna_request.firstname }} {{ sokna_request.lastname }}</h1>
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>حالة الطلب</th>
-						<th>ملاحظات</th>
+						<th>{% trans "statement status" %}</th>
+						<th>{% trans "Notes" %}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,11 +35,11 @@
 			</table>
 		{% else %}
 			<div class="card ml-auto mr-auto w-50">
-				<h1 class="card-header bg-info text-white"> متابعة طلبي </h1>
+				<h1 class="card-header bg-info text-white"> {% trans "Follow my statement" %}</h1>
 				<div class="card-body">
 					<form method='GET'>
 						{{ form|crispy }}
-						<button class="btn btn-block btn-info btn-lg">متابعة</button>
+						<button class="btn btn-block btn-info btn-lg">{% trans "Follow" %}</button>
 					</form>
 				</div>
 			</div>

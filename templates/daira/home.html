@@ -1,11 +1,13 @@
 {% extends 'tpls/_base.html' %}
+{% load i18n %}
 {% load humanize %}
+{% load extra_settings %}
 
 {% block content %}
 <!-- jumbotron -->
 <div class="jumbotron">
 	<div class="container text-center">
-<h1 class="display-4 mb-5">Daira مرحباً بكم في موقع <br>! لطلب الشواهد الادارية عن بعد</h1>
+<h1 class="display-4 mb-5">{% get_setting "APP_NAME" default="Logo" %} مرحباً بكم في موقع <br>! لطلب الشواهد الادارية عن بعد</h1>
 		<p class="lead mb-5">مرحباً بكم في موقع خدمة
 الشواهد الادارية التابعة لولاية جهة فاس مكناس - عمالة فاس
 هذه الخدمة تسمح لك بطلب الشواهد الإدارية  عن طريق الأنترنيت.</p>
@@ -16,7 +18,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			
+
 		</div>
 	</div>
 </div>

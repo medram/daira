@@ -1,6 +1,14 @@
 from django.contrib import admin
 from django.utils.html import mark_safe
+from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 from .models import SoknaRequest
+
+
+admin.site.site_title = f'{settings.APP_NAME}'
+admin.site.site_header = f'{settings.APP_NAME}'
+admin.site.index_title = 'Dashboard'
+
 
 @admin.register(SoknaRequest)
 class SoknaRequestAdmin(admin.ModelAdmin):
@@ -32,7 +40,7 @@ class SoknaRequestAdmin(admin.ModelAdmin):
 			return mark_safe(f'<i class="fas fa-fw fa-female text-danger"style="font-size: 1.2rem;"></i> {obj.get_gender_display()}')
 		else:
 			return '-'
-	get_gender.short_description = 'gender'
+	get_gender.short_description = _('Gender')
 	get_gender.admin_order_field = 'gender'
 
 	def get_status(self, obj=None):
@@ -44,6 +52,6 @@ class SoknaRequestAdmin(admin.ModelAdmin):
 			return mark_safe(f'<span class="badge badge-pill badge-danger">{obj.get_status_display().upper()}</span>')
 		else:
 			return '-'
-	get_status.short_description = 'status'
+	get_status.short_description = _('status')
 	get_status.admin_order_field = 'status'
 

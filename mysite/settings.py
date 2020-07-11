@@ -27,12 +27,21 @@ SECRET_KEY = '0(#42x64gp8mrpxq@$39r)jr@)55ovfe2dl%4kmp*f48&j*k+f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "192.168.1.119"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # 'django.contrib.admin',
+    'mysite.apps.MyAdminConfig',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.humanize',
+
     'daira',
     'sokna',
     'pages',
@@ -46,20 +55,13 @@ INSTALLED_APPS = [
     # 'easy_thumbnails',
     # 'filer',
     # 'mptt',
-
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'mysite.middleware.LocaleAdminMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -128,13 +130,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-# LANGUAGES = [
-#   ('en', _('English')),
-#   ('ar', _('Arabic')),
-#   ('fr', _('French'))
-# ]
+LANGUAGES = [
+  ('en', _('English')),
+  ('ar', _('Arabic')),
+  ('fr', _('French'))
+]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Casablanca' # default: UTC
 
 USE_I18N = True
 
@@ -143,7 +145,15 @@ USE_L10N = False
 USE_TZ = True
 
 # datetime format
-DATETIME_FORMAT = 'Y-m-d H:i:s'
+DATETIME_FORMAT = 'd/m/Y H:i:s'
+DATE_FORMAT = 'd/m/Y'
+
+# translated files
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale')
+]
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -213,13 +223,9 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-# Django-Filer
-# THUMBNAIL_HIGH_RESOLUTION = True
-
-# THUMBNAIL_PROCESSORS = (
-#     'easy_thumbnails.processors.colorspace',
-#     'easy_thumbnails.processors.autocrop',
-#     #'easy_thumbnails.processors.scale_and_crop',
-#     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
-#     'easy_thumbnails.processors.filters',
-# )
+####################### My custom settings #######################
+APP_NAME = 'Chahadaty'
+APP_VERSION = '0.1.0'
+POWRED_BY = 'Mohammed Ramouchy'
+POWRED_BY_URL = 'https://github.com/medram'
+POWRED_BY_EMAIL = 'mohammed@ramouchy.com'
