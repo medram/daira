@@ -21,6 +21,7 @@ class Individual(models.Model):
 	handicapped = models.BooleanField(default=False)
 
 	relation 	= models.ManyToManyField('self', through='Relationship', through_fields=('individual_1', 'individual_2'))
+	mol7aka 	= models.ForeignKey('Mol7aka', on_delete=models.CASCADE, related_name='individuals', null=True, blank=True)
 
 	created 	= models.DateTimeField(auto_now_add=True)
 	updated 	= models.DateTimeField(auto_now=True)
@@ -48,8 +49,11 @@ class Relationship(models.Model):
 	relationship_type = models.ForeignKey('RelationshipType', on_delete=models.DO_NOTHING, null=True)
 	description 	= RichTextField(null=True) 
 
+	mol7aka 	= models.ForeignKey('Mol7aka', on_delete=models.CASCADE, related_name='relationships', null=True, blank=True)
+
 	created 	= models.DateTimeField(auto_now_add=True)
 	updated 	= models.DateTimeField(auto_now=True)
+
 
 class RelationshipType(models.Model):
 	relationship_name = models.CharField(max_length=64)
@@ -65,6 +69,8 @@ class Address(models.Model):
 	city 		= models.ForeignKey('City', on_delete=models.SET_NULL, null=True)
 	zip_code 	= models.CharField(max_length=16, null=True, blank=True)
 	individual  = models.ForeignKey('Individual', on_delete=models.SET_NULL, null=True, blank=True)
+
+	mol7aka 	= models.ForeignKey('Mol7aka', on_delete=models.CASCADE, related_name='addresses', null=True, blank=True)
 
 	class Meta:
 		db_table = 'addresses'
@@ -88,6 +94,7 @@ class City(models.Model):
 
 class Street(models.Model):
 	street_name = models.CharField(max_length=64)
+	mol7aka 	= models.ForeignKey('Mol7aka', on_delete=models.CASCADE, related_name='streets', null=True, blank=True)
 
 	class Meta:
 		db_table = 'streets'
@@ -99,6 +106,7 @@ class Street(models.Model):
 class Report(models.Model):
 	report = RichTextField()
 	individual = models.ForeignKey('individual', on_delete=models.CASCADE, related_name='reports')
+	mol7aka 	= models.ForeignKey('Mol7aka', on_delete=models.CASCADE, related_name='reports', null=True, blank=True)
 
 	created 	= models.DateTimeField(auto_now_add=True)
 	updated 	= models.DateTimeField(auto_now=True)

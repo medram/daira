@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "192.168.1.119"]
 
 INSTALLED_APPS = [
     # 'django.contrib.admin',
+    'account',
     'mysite.apps.MyAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,6 +124,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Set a custum User admin.
+AUTH_USER_MODEL = 'account.CustomUser'
 
 
 # Internationalization

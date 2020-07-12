@@ -9,7 +9,7 @@ class MyAdminSite(admin.AdminSite):
 			extra_context = {}
 		# Adding my context here
 		extra_context.update({
-			'servers': 0,
+			'individuals': 0,
 			'profiles': 0,
 			'proxies': 0,
 			'queues': 0,

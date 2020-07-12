@@ -33,50 +33,106 @@
     		margin-left: 0.5rem;
     		flex-grow: 1;
 		}
+		.font-size {
+			font-size: 1.2rem;	
+		}
 	</style>
 	<div class="col-md-8 insight">
 		
 		<div class="card text-white bg-success mb-3">
-		  <div class="card-header my-display-4"><i class="fas fa-fw fa-users"></i> Profiles<br></div>
-		  <div class="card-body display-4 text-center">
-		    {{ profiles }}
+		  <div class="card-header my-display-4"><i class="fas fa-fw fa-users"></i> Individuals<br></div>
+		  <div class="card-body">
+		  	<table class="w-100">
+		  		<tbody>
+			  		<tr>
+			  			<td><i class="fas fa-fw fa-male"></i> Males</td>
+			  			<td>1546</td>
+			  		</tr>
+			  		<tr>
+			  			<td><i class="fas fa-fw fa-female"></i> Females</td>
+			  			<td>1876</td>
+			  		</tr>
+			  		<tr>
+			  			<td><i class="fas fa-fw fa-wheelchair"></i> Handicapped</td>
+			  			<td>18</td>
+			  		</tr>
+			  	</tbody>
+		  	</table>
 		  </div>
 		</div>
 
 		<div class="card text-white bg-dark mb-3">
-		  <div class="card-header my-display-4"><i class="fas fa-fw fa-desktop"></i> Servers<br></div>
+		  <div class="card-header my-display-4"><i class="fas fa-fw fa-building"></i> Administrative attaches<br></div>
 		  <div class="card-body display-4 text-center">
-		    {{ servers }}
+		    {{ administrative_attaches }}
 		  </div>
 		</div>
 
 		<div class="card text-white bg-secondary mb-3">
-		  <div class="card-header my-display-4"><i class="fas fa-fw fa-server"></i> Proxies<br></div>
-		  <div class="card-body display-4 text-center">
-		    {{ proxies }}
+		  <div class="card-header my-display-4"><i class="fas fa-fw fa-briefcase"></i> Jobs<br></div>
+		  <div class="card-body">
+		  	<table class="w-100">
+		  		<tbody>
+		  			<tr>
+		  				<td>job 1</td>
+		  				<td><i class="fas fa-fw fa-user"></i> 142</td>
+		  			</tr>
+		  			<tr>
+		  				<td>job 2</td>
+		  				<td><i class="fas fa-fw fa-user"></i> 34</td>
+		  			</tr>
+		  			<tr>
+		  				<td>job 3</td>
+		  				<td><i class="fas fa-fw fa-user"></i> 108</td>
+		  			</tr>
+		  			<tr>
+		  				<td>job 4</td>
+		  				<td><i class="fas fa-fw fa-user"></i> 108</td>
+		  			</tr>
+		  			<tr>
+		  				<td>job 5</td>
+		  				<td><i class="fas fa-fw fa-user"></i> 108</td>
+		  			</tr>
+		  		</tbody>
+		  	</table>
 		  </div>
 		</div>
 
 		<div class="card text-white bg-info mb-3">
-		  <div class="card-header my-display-4"><i class="fas fa-fw fa-tasks"></i> Tasks<br></div>
+		  <div class="card-header my-display-4"><i class="fas fa-fw fa-copy"></i> Reports<br></div>
 		  <div class="card-body display-4 text-center">
-		    {{ tasks }}
+		    {{ reports }}
 		  </div>
 		</div>
 
 		<div class="card text-dark bg-light mb-3">
-		  <div class="card-header my-display-4"><i class="fas fa-fw fa-stream"></i> Queues<br></div>
-		  <div class="card-body display-4 text-center">
-		    {{ queues }}
+		  <div class="card-header my-display-4"><i class="fas fa-fw fa-file"></i> Residential statements<br></div>
+		  <div class="card-body">
+			<table class="w-100">
+				<tbody>
+					<tr>
+						<td>Approved</td>
+						<td><span class="badge badge-success">142</span></td>
+					</tr>
+					<tr>
+						<td>Rejected</td>
+						<td><span class="badge badge-danger">34</span></td>
+					</tr>
+					<tr>
+						<td>Pending</td>
+						<td><span class="badge badge-secondary">108</span></td>
+					</tr>
+				</tbody>
+			</table>
 		  </div>
 		</div>
 
-		<div class="card text-white bg-warning mb-3">
+<!-- 		<div class="card text-white bg-warning mb-3">
 		  <div class="card-header my-display-4"><i class="fas fa-fw fa-robot"></i> Workers<br></div>
 		  <div class="card-body display-4 text-center">
 		    {{ workers }}
 		  </div>
-		</div>
+		</div> -->
 
 	</div>
 {% endblock %}
