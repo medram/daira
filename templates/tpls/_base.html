@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load extra_settings %}
 
 {% get_current_language as LANGUAGE_CODE %}
 
@@ -17,7 +18,7 @@
     {% if page.title %}
       <title>{{ page.title }}</title>
     {% else %}
-      <title>Brand name</title>
+      <title>{% get_setting "APP_NAME" %}</title>
     {% endif %}
 
     <!-- Bootstrap CSS -->

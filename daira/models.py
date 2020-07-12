@@ -1,6 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, get_language
 
 class Individual(models.Model):
 
@@ -109,20 +109,28 @@ class Report(models.Model):
 
 class Amala(models.Model):
 	name = models.CharField(max_length=32)
+	name_in_arabic = models.CharField(max_length=32)
 
 	class Meta:
-		verbose_name_plural = 'Amalat'
+		verbose_name = _('Amala')
+		verbose_name_plural = _('Amalat')
 
 	def __str__(self):
+		if get_language() == 'ar':
+			return self.name_in_arabic
 		return self.name
-
 
 class Mol7aka(models.Model):
 	name = models.CharField(max_length=32)
+	name_in_arabic = models.CharField(max_length=32)
+	
 	amala = models.ForeignKey('Amala', on_delete=models.CASCADE, related_name='mol7akat')
 
 	class Meta:
-		verbose_name_plural = 'Mol7akat'
+		verbose_name = _('Administrative attache')
+		verbose_name_plural = _('Administrative attaches')
 
 	def __str__(self):
+		if get_language() == 'ar':
+			return self.name_in_arabic
 		return self.name

@@ -133,7 +133,7 @@ LANGUAGE_CODE = 'en-us'
 LANGUAGES = [
   ('en', _('English')),
   ('ar', _('Arabic')),
-  ('fr', _('French'))
+  # ('fr', _('French'))
 ]
 
 TIME_ZONE = 'Africa/Casablanca' # default: UTC

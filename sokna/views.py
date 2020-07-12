@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-
+from django.utils.translation import gettext_lazy as _
 from .forms import SoknaRequestForm, FollowForm
 from .models import SoknaRequest
 
@@ -10,7 +10,7 @@ def register(req):
 		form = SoknaRequestForm(req.POST, req.FILES)
 		if form.is_valid():
 			instance = form.save()
-			messages.success(req, '<i class="fa fa-fw fa-check"></i> Your request has been submitted successfully.')
+			messages.success(req, '<i class="fa fa-fw fa-check"></i> %s' % _('Your request has been submitted successfully.'))
 			# redirect to a valid page.
 			return redirect('sokna:done', id=instance.pk)
 	else:
