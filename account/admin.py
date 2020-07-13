@@ -25,37 +25,47 @@ class CustomGroupAdmin(GroupAdmin):
 
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
-    list_display = ('profile', 'CIN', 'full_name', 'get_gender', 'is_active', 'is_staff', 'date_joined')
+    list_display    = ('profile', 'CIN', 'full_name', 'get_gender', 'is_active', 'is_staff', 'date_joined')
     list_display_links = ('CIN', 'full_name')
     # list_editable = ('is_active',)
-    readonly_fields = ('get_profile', 'last_login', 'date_joined', 'updated')
+    readonly_fields = ('get_profile', 'last_login', 'date_joined', 'updated', 'get_password')
+    search_fields   = ('CIN', 'first_name', 'last_name', 'email', 'phone')
+    list_filter     = ('is_staff', 'is_superuser', 'is_active', 'groups', 'gender')
+    ordering        = ('-date_joined',) 
 
+    fieldsets = (
+        (None, {
+                'fields': ('get_profile', 'profile_image')
+            }),
+        (_('Personal info'), {
+                'fields': ('CIN', 'get_password', 'first_name', 'last_name', 'gender', 'phone', 'email', 'address')
+            }),
+        (_('Permissions'), {
+                'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')
+            }),
+        (_('Important dates'), {
+                'fields': ('last_login', 'date_joined', 'updated')
+            })
+    )
 
-    def get_fieldsets(self, request, obj=None):
-        # fieldsets = super().get_fieldsets(request, obj)
-        fieldsets = (
-            (None, {
-                    'fields': ('CIN', 'password')
-                }),
-            (_('Avatar'), {
-                    'fields': ('get_profile', 'profile_image')
-                }),
-            (_('Personal info'), {
-                    'fields': ('first_name', 'last_name', 'gender', 'phone', 'email', 'address')
-                }),
-            (_('Permissions'), {
-                    'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')
-                }),
-            (_('Important dates'), {
-                    'fields': ('last_login', 'date_joined', 'updated')
-                })
-        )
+    def get_password(self, obj=None):
+        return mark_safe("<a href='../password' class='btn btn-primary btn-sm text-white'><i class='fas fa-key fa-fw'></i> %s</a>" % _('Change Password'))
+    get_password.short_description = 'Password'
 
-        return fieldsets
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('CIN', 'password1', 'password2'),
+        }),
+    )
+
+    # def get_fieldsets(self, request, obj=None):
+    #     # fieldsets = super().get_fieldsets(request, obj)
+    #     return fieldsets
 
     def profile(self, obj):
         return format_html(
-            f"<a href=\"{reverse('admin:account_customuser_change', args=(obj.pk,))}\"><img src='{obj.profile_image.url}' width='40' height='40' style='border-radius: 50%; border: 1px solid #CCC;'></a>"
+            f"<a href=\"{reverse('admin:account_customuser_change', args=(obj.pk,))}\"><img src='{obj.profile_image.url}' width='50' height='50' style='border-radius: 50%; border: 1px solid #CCC;'></a>"
         )
 
     def get_profile(self, obj):
@@ -79,3 +89,7 @@ class CustomUserAdmin(UserAdmin):
             return '-'
     get_gender.short_description = _('Gender')
     get_gender.admin_order_field = 'gender'
+
+
+    # def save_model(self, request, obj, form, change):
+    #     super(admin.ModelAdmin, self).save_model(request, obj, form, change)

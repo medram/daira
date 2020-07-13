@@ -6,7 +6,7 @@ from django.db import models
 from django.contrib.auth.models import User, AbstractUser, Group, BaseUserManager
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
-
+from django.utils import timezone
 
 def _user_profile_path(instance, filename):
     return f"profiles/{secrets.token_hex(16)}.png"
@@ -20,7 +20,7 @@ class CustomUser(AbstractUser):
     USERNAME_FIELD = 'CIN'
     # REQUIRED_FIELDS = (,)
 
-    username = models.CharField(max_length=32, null=True, blank=True)
+    username = models.CharField(max_length=150, null=True, blank=True, default=timezone.now)
 
     class GENDER(models.IntegerChoices):
         MALE = (1, _('Male'))
@@ -38,8 +38,6 @@ class CustomUser(AbstractUser):
 
     objects = CustomUserManager()
 
-    # def clean(self):
-    #     pass
 
     def save(self, *args, **kwargs):
         # set the token if not exists.
