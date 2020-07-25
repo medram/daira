@@ -41,7 +41,7 @@ class CustomUserAdmin(UserAdmin):
                 'fields': ('CIN', 'get_password', 'first_name', 'last_name', 'gender', 'phone', 'email', 'address')
             }),
         (_('Permissions'), {
-                'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')
+                'fields': ('mol7aka', 'is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')
             }),
         (_('Important dates'), {
                 'fields': ('last_login', 'date_joined', 'updated')

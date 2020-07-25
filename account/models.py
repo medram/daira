@@ -8,6 +8,9 @@ from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.utils import timezone
 
+from daira.models import Mol7aka
+
+
 def _user_profile_path(instance, filename):
     return f"profiles/{secrets.token_hex(16)}.png"
 
@@ -31,6 +34,8 @@ class CustomUser(AbstractUser):
     )
     gender  = models.IntegerField(choices=GENDER.choices, default=GENDER.MALE)
     phone   = models.CharField(max_length=10, blank=True, null=True)
+
+    mol7aka = models.ForeignKey(Mol7aka, on_delete=models.CASCADE, related_name='users', null=True, blank=True, verbose_name=_('Administrative attache'))
     
     # status = models.IntegerField(choices=Status.choices, default=Status.APPROVED)
     address = models.CharField(max_length=256, null=True, blank=True)

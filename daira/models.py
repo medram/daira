@@ -76,7 +76,6 @@ class Address(models.Model):
 		db_table = 'addresses'
 		verbose_name_plural = 'addresses'
 
-
 	def __str__(self):
 		return f'{self.address}'
 
