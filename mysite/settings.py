@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
+
     'daira',
     'sokna',
     'pages',
@@ -52,6 +53,8 @@ INSTALLED_APPS = [
     'adminsortable2',
     'ckeditor',
     'crispy_forms',
+    'cuser',
+    'crequest',
     # for file manager (django-filer)
     # 'easy_thumbnails',
     # 'filer',
@@ -68,6 +71,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # added middlewares
+    'cuser.middleware.CuserMiddleware',
+    'crequest.middleware.CrequestMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
