@@ -1,8 +1,10 @@
 from django.contrib import admin
-
+from django.utils.html import mark_safe
 from .models import (Address, City, Individual, Street, Report, RelationshipType, Relationship, 
 	Job, Amala, Mol7aka)
 from .mixins import EmployeeRestrictionMixin
+
+from account.models import CustomUser
 
 
 class AddressInline(admin.TabularInline):
@@ -58,7 +60,6 @@ class IndividualAdmin(EmployeeRestrictionMixin, admin.ModelAdmin):
 	def get_report_count(self, obj):
 		return obj.reports.count()
 	get_report_count.short_description = 'Reports'
-
 
 	# def get_search_results(self, request, queryset, search_term):
 	# 	queryset, use_distinct = super().get_search_results(request, queryset, search_term)
@@ -150,7 +151,24 @@ class AmalaAdmin(admin.ModelAdmin):
 
 @admin.register(Mol7aka)
 class Mol7akaAdmin(admin.ModelAdmin):
-	list_filter = ('amala__name',)
-	search_fields = ('name', 'amala__name')
-	ordering = ('name', 'name_in_arabic')
+	list_display 	= ('__str__', 'total_employees', 'total_individuals', 'total_handicapped', 'total_reports')
+	list_filter 	= ('amala__name',)
+	search_fields 	= ('name', 'amala__name')
+	ordering 		= ('name', 'name_in_arabic')
+
+	def total_employees(self, obj=None):
+		result = CustomUser.objects.filter(mol7aka=obj).count()
+		return mark_safe(f"{result} <i class='fas fa-user-tie'></i>")
+
+	def total_individuals(self, obj=None):
+		result = Individual.objects.filter(mol7aka=obj).count()
+		return mark_safe(f"{result} <i class='fas fa-users text-secondary'></i>")
+
+	def total_handicapped(self, obj=None):
+		result = Individual.objects.filter(mol7aka=obj, handicapped=True).count()
+		return mark_safe(f"{result} <i class='fas fa-fw fa-wheelchair text-primary'></i>")
+
+	def total_reports(self, obj=None):
+		result = Report.objects.filter(mol7aka=obj).count()
+		return mark_safe(f"{result} <i class='fas fa-fw fa-copy text-info'></i>")
 	
