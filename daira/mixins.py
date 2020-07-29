@@ -1,5 +1,5 @@
-# import abc
 
+# A mixin to restrict users/employees.
 class EmployeeRestrictionMixin():
 	#Hide 'mol7aka' from showing up.
 	def get_fields(self, request, obj=None):
