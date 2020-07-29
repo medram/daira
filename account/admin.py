@@ -32,6 +32,7 @@ class CustomUserAdmin(UserAdmin):
     search_fields   = ('CIN', 'first_name', 'last_name', 'email', 'phone')
     list_filter     = ('is_staff', 'is_superuser', 'is_active', 'groups', 'gender')
     ordering        = ('-date_joined',) 
+    autocomplete_fields = ('mol7aka',)
 
     fieldsets = (
         (None, {
