@@ -71,7 +71,7 @@ class CustomUserAdmin(UserAdmin):
 
     def get_profile(self, obj):
         return format_html(
-            f"<a href=\"{reverse('admin:account_customuser_change', args=(obj.pk,))}\"><img src='{obj.profile_image.url}' style='border-radius: 50%; border: 1px solid #CCC;'></a>"
+            f"<a href=\"{reverse('admin:account_customuser_change', args=(obj.pk,))}\"><img src='{obj.profile_image.url}' style='border-radius: 50%; border: 1px solid #CCC; width: 200px; height: 200px;'></a>"
         )
     get_profile.short_description = _('Avatar')
 
