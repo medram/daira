@@ -3,6 +3,9 @@
 {% load static %}
 {% load extra_settings %}
 
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
 {% block branding %}
 <h1 class="head">
 	<a href="{% url 'admin:index' %}"><b>{% get_setting 'APP_NAME' default='Logo' %}</b> <small>v{% get_setting 'APP_VERSION' %}</small></a>
