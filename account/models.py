@@ -41,7 +41,7 @@ class CustomUser(AbstractUser):
     address = models.CharField(max_length=256, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True, blank=True)
 
-    objects = CustomUserManager()
+    # objects = CustomUserManager()
 
 
     def save(self, *args, **kwargs):

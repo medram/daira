@@ -5,9 +5,9 @@ from django.utils.translation import gettext_lazy as _
 from .models import SoknaRequest
 
 
-admin.site.site_title = f'{settings.APP_NAME}'
-admin.site.site_header = f'{settings.APP_NAME}'
-admin.site.index_title = 'Dashboard'
+# admin.site.site_title = f'{settings.APP_NAME}'
+# admin.site.site_header = f'{settings.APP_NAME}'
+# admin.site.index_title = 'Dashboard'
 
 
 @admin.register(SoknaRequest)

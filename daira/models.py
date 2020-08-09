@@ -17,7 +17,7 @@ class Individual(models.Model):
 	lastname 	= models.CharField(max_length=32)
 	born 		= models.DateField(null=True, blank=True)
 	gender 		= models.IntegerField(choices=GENDER, default=MALE)
-	jobs		= models.ManyToManyField('Job', related_name='individuals') 
+	jobs		= models.ManyToManyField('Job', related_name='individuals')
 	handicapped = models.BooleanField(default=False)
 
 	relation 	= models.ManyToManyField('self', through='Relationship', through_fields=('individual_1', 'individual_2'))
