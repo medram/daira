@@ -235,7 +235,7 @@ CKEDITOR_CONFIGS = {
 
 ####################### My custom settings #######################
 APP_NAME = 'Chahadaty'
-APP_VERSION = '0.1.0'
+APP_VERSION = '0.2.0'
 POWRED_BY = 'Mohammed Ramouchy'
 POWRED_BY_URL = 'https://github.com/medram'
 POWRED_BY_EMAIL = 'mohammed@ramouchy.com'
