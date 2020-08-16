@@ -38,7 +38,7 @@
 		}
 	</style>
 	<div class="col-md-8 insight">
-		
+		{% if perms.daira.view_individual %}
 		<div class="card text-white bg-success mb-3">
 		  <div class="card-header my-display-4">
 		  	<a href="{% url 'admin:daira_individual_changelist' %}" class="text-white">
@@ -64,8 +64,9 @@
 		  	</table>
 		  </div>
 		</div>
+		{% endif %}
 
-		{% if user.is_superuser %}
+		{% if perms.daira.view_mol7aka and user.is_superuser %}
 		<div class="card text-white bg-dark mb-3">
 		  <div class="card-header my-display-4">
 		  	<a href="{% url 'admin:daira_mol7aka_changelist' %}" class="text-white">
@@ -111,44 +112,46 @@
 		</div>
 		{% endif %}
 
-		{% if user.is_superuser %}
-		<div class="card text-white bg-info mb-3">
-		  <div class="card-header my-display-4">
-		  	<a href="{% url 'admin:daira_report_changelist' %}" class="text-white">
-		  		<i class="fas fa-fw fa-copy"></i> Reports
-		  	</a>
-		  </div>
-		  <div class="card-body display-4 text-left">
-			<div class="text-center">{{ insight.reports.count }}</div>
-	      	<table class="w-100 mt-4">
-	      		<thead>
-	      			<tr>
-	      				<th>{% trans "Administrative attaches" %}</th>
-	      				<th>{% trans "Reports" %}</th>
-	      			</tr>
-	      		</thead>
-	      		<tbody>
-	      			{% for mok7aka in insight.reports.mol7akat %}
-	    	  			<tr>
-	    	  				<td>{{ mok7aka.name }}</td>
-	    	  				<td>{{ mok7aka.total_reports }} <i class="fas fa-fw fa-copy"></i></td>
-	    	  			</tr>
-	      			{% endfor %}
-	      		</tbody>
-	      	</table>
-		  </div>
-		</div>
-		{% else %}
-		<div class="card text-white bg-info mb-3">
-		  <div class="card-header my-display-4">
-		  	<a href="{% url 'admin:daira_report_changelist' %}" class="text-white">
-		  		<i class="fas fa-fw fa-copy"></i> Reports
-		  	</a>
-		  </div>
-		  <div class="card-body display-4 text-center">
-		    {{ insight.reports.count }}
-		  </div>
-		</div>
+		{% if perms.daira.view_report %}
+			{% if user.is_superuser %}
+			<div class="card text-white bg-info mb-3">
+			  <div class="card-header my-display-4">
+			  	<a href="{% url 'admin:daira_report_changelist' %}" class="text-white">
+			  		<i class="fas fa-fw fa-copy"></i> Reports
+			  	</a>
+			  </div>
+			  <div class="card-body display-4 text-left">
+				<div class="text-center">{{ insight.reports.count }}</div>
+		      	<table class="w-100 mt-4">
+		      		<thead>
+		      			<tr>
+		      				<th>{% trans "Administrative attaches" %}</th>
+		      				<th>{% trans "Reports" %}</th>
+		      			</tr>
+		      		</thead>
+		      		<tbody>
+		      			{% for mok7aka in insight.reports.mol7akat %}
+		    	  			<tr>
+		    	  				<td>{{ mok7aka.name }}</td>
+		    	  				<td>{{ mok7aka.total_reports }} <i class="fas fa-fw fa-copy"></i></td>
+		    	  			</tr>
+		      			{% endfor %}
+		      		</tbody>
+		      	</table>
+			  </div>
+			</div>
+			{% else %}
+			<div class="card text-white bg-info mb-3">
+			  <div class="card-header my-display-4">
+			  	<a href="{% url 'admin:daira_report_changelist' %}" class="text-white">
+			  		<i class="fas fa-fw fa-copy"></i> Reports
+			  	</a>
+			  </div>
+			  <div class="card-body display-4 text-center">
+			    {{ insight.reports.count }}
+			  </div>
+			</div>
+			{% endif %}
 		{% endif %}
 
 		{% if perms.sokna %}
