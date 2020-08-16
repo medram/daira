@@ -35,6 +35,26 @@ class EmployeeRestrictionMixin():
 		return list_display
 
 
+	# hide 'mol7aka' from fieldsets
+	def get_fieldsets(self, request, obj=None):
+		fieldsets = super().get_fieldsets(request, obj)
+		
+		if not request.user.is_superuser:
+			new_fieldsets = []
+			for title, items in fieldsets:
+				items = items.copy()
+				try:
+					fields = list(items['fields'])
+					fields.remove('mol7aka')
+					items.update({'fields': fields})
+				except Exception:
+					pass
+				# updating
+				new_fieldsets.append((title, items))
+			return new_fieldsets
+		return fieldsets
+
+
 	# customize the queryset to list item depends on mol7akat.
 	def get_queryset(self, request):
 		qs = super().get_queryset(request)
