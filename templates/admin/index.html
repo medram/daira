@@ -151,27 +151,29 @@
 		</div>
 		{% endif %}
 
-		<div class="card text-dark bg-light mb-3">
-		  <div class="card-header my-display-4"><i class="fas fa-fw fa-file"></i> Residential statements<br></div>
-		  <div class="card-body">
-			<table class="w-100">
-				<tbody>
-					<tr>
-						<td>Approved</td>
-						<td><span class="badge badge-success">142</span></td>
-					</tr>
-					<tr>
-						<td>Rejected</td>
-						<td><span class="badge badge-danger">34</span></td>
-					</tr>
-					<tr>
-						<td>Pending</td>
-						<td><span class="badge badge-secondary">108</span></td>
-					</tr>
-				</tbody>
-			</table>
-		  </div>
-		</div>
+		{% if perms.sokna %}
+			<div class="card text-dark bg-light mb-3">
+			  <div class="card-header my-display-4"><i class="fas fa-fw fa-file"></i> Residential statements<br></div>
+			  <div class="card-body">
+				<table class="w-100">
+					<tbody>
+						<tr>
+							<td>Approved</td>
+							<td><span class="badge badge-success">{{ insight.residentials.approved }}</span></td>
+						</tr>
+						<tr>
+							<td>Rejected</td>
+							<td><span class="badge badge-danger">{{ insight.residentials.rejected }}</span></td>
+						</tr>
+						<tr>
+							<td>Pending</td>
+							<td><span class="badge badge-secondary">{{ insight.residentials.pending }}</span></td>
+						</tr>
+					</tbody>
+				</table>
+			  </div>
+			</div>
+		{% endif %}
 
 <!-- 		<div class="card text-white bg-warning mb-3">
 		  <div class="card-header my-display-4"><i class="fas fa-fw fa-robot"></i> Workers<br></div>

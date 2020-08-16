@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 from account.models import CustomUser
 from daira.models import Individual, Mol7aka, Report, Job
+from sokna.models import SoknaRequest
 from cuser.middleware import CuserMiddleware
 
 # My custom AdminSite
@@ -36,6 +37,11 @@ class MyAdminSite(admin.AdminSite):
 					'reports': {
 						'count': Report.objects.filter(mol7aka=user.mol7aka).count()
 					},
+					'residentials': {
+						'approved': SoknaRequest.objects.filter(mol7aka=user.mol7aka, status=SoknaRequest.STATUS.APPROVED).count(),
+						'rejected': SoknaRequest.objects.filter(mol7aka=user.mol7aka, status=SoknaRequest.STATUS.REJECTED).count(),
+						'pending': SoknaRequest.objects.filter(mol7aka=user.mol7aka, status=SoknaRequest.STATUS.PENDING).count(),
+					}
 				}
 			})		
 		else:
@@ -57,7 +63,12 @@ class MyAdminSite(admin.AdminSite):
 						'mol7akat': Mol7aka.objects.values('name').annotate(total_reports=Count('reports')).order_by('-total_reports')[:5]
 					},
 					# get Top 10 jobs
-					'jobs': Job.objects.values('job_name').annotate(dcount=Count('individuals')).order_by('-dcount')[:10]
+					'jobs': Job.objects.values('job_name').annotate(dcount=Count('individuals')).order_by('-dcount')[:10],
+					'residentials': {
+						'approved': SoknaRequest.objects.filter(status=SoknaRequest.STATUS.APPROVED).count(),
+						'rejected': SoknaRequest.objects.filter(status=SoknaRequest.STATUS.REJECTED).count(),
+						'pending': SoknaRequest.objects.filter(status=SoknaRequest.STATUS.PENDING).count(),
+					}
 				}
 			})
 		return super().index(request, extra_context=extra_context)

@@ -3,7 +3,7 @@ from django.utils.html import mark_safe
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from .models import SoknaRequest
-
+from daira.mixins import EmployeeRestrictionMixin
 
 # admin.site.site_title = f'{settings.APP_NAME}'
 # admin.site.site_header = f'{settings.APP_NAME}'
@@ -11,12 +11,14 @@ from .models import SoknaRequest
 
 
 @admin.register(SoknaRequest)
-class SoknaRequestAdmin(admin.ModelAdmin):
+class SoknaRequestAdmin(EmployeeRestrictionMixin, admin.ModelAdmin):
 	list_display = ('id', 'CIN', 'fullname', 'get_gender', 'get_status', 'updated', 'created')
-	list_filter = ('created', 'gender', 'status')
+	list_filter = ('created', 'gender', 'status', 'mol7aka')
 	search_fields = ('id', 'CIN', 'firstname', 'lastname')
 	date_hierarchy = 'created'
-	# list_per_page = 5
+	ordering = ('-created',)
+	autocomplete_fields = ('mol7aka',)
+	list_per_page = 50
 	fieldsets = (
 		(None, {
 				'fields': ('CIN', ('firstname', 'lastname'), ('born_d', 'born_m', 'born_y'), 'born_no_d_m', 'gender', 'phone', 'address', 'mol7aka')

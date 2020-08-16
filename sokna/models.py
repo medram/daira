@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from daira.models import Mol7aka
 from daira.validators import PhoneValidator, TermsOfUse
 
+
 class SoknaRequest(models.Model):
 
 	class GENDER(models.IntegerChoices):
