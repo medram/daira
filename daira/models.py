@@ -15,13 +15,23 @@ class Individual(models.Model):
 	CIN 		= models.CharField(max_length=10, primary_key=True)
 	firstname 	= models.CharField(max_length=32)
 	lastname 	= models.CharField(max_length=32)
-	born 		= models.DateField(null=True, blank=True)
+	ar_firstname= models.CharField(max_length=32, null=True, blank=True, verbose_name=_('Firstname in Arabic'))
+	ar_lastname = models.CharField(max_length=32, null=True, blank=True, verbose_name=_('Lastname in Arabic'))
+	# born 		= models.DateField(null=True, blank=True)
+	born_d 		= models.IntegerField(null=True, blank=True, verbose_name=_('Day of birth'))
+	born_m 		= models.IntegerField(null=True, blank=True, verbose_name=_('Month of birth'))
+	born_y 		= models.IntegerField(null=True, blank=True, verbose_name=_('Year of birth'))
+	born_no_d_m = models.BooleanField(default=False, null=True, blank=True, verbose_name=_('I don\'t have day & month of my birthday'))
+
 	gender 		= models.IntegerField(choices=GENDER, default=MALE)
 	jobs		= models.ManyToManyField('Job', related_name='individuals')
 	handicapped = models.BooleanField(default=False)
 
 	relation 	= models.ManyToManyField('self', through='Relationship', through_fields=('individual_1', 'individual_2'))
 	mol7aka 	= models.ForeignKey('Mol7aka', on_delete=models.CASCADE, related_name='individuals', null=True, blank=True, verbose_name=_('Administrative attache'))
+
+	photo_1 	= models.ImageField(upload_to='individuals/cin_photos', verbose_name=_('Front face of CIN'), null=True, blank=True)
+	photo_2 	= models.ImageField(upload_to='individuals/cin_photos', verbose_name=_('Back face of CIN'), null=True, blank=True)
 
 	created 	= models.DateTimeField(auto_now_add=True)
 	updated 	= models.DateTimeField(auto_now=True)

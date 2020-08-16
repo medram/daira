@@ -49,13 +49,22 @@ class ReportInline(admin.TabularInline):
 
 @admin.register(Individual)
 class IndividualAdmin(EmployeeRestrictionMixin, admin.ModelAdmin):
-	list_display = ('CIN', 'firstname', 'lastname', 'born', 'handicapped', 'get_report_count', 'mol7aka', 'created')
+	list_display = ('CIN', 'firstname', 'lastname', 'handicapped', 'get_report_count', 'mol7aka', 'created')
 	list_filter = ('created', 'handicapped', 'mol7aka')
 	search_fields = ('CIN', 'firstname', 'lastname')
 	filter_horizontal = ('jobs',)
 	inlines = (AddressInline, ReportInline)
 	ordering = ('-created',)
 	autocomplete_fields = ('mol7aka',)
+
+	fieldsets = (
+		(None, {
+				'fields': ('CIN', ('firstname', 'ar_firstname'), ('lastname', 'ar_lastname'), ('born_d', 'born_m', 'born_y'), 'born_no_d_m', 'gender', 'handicapped', 'jobs', 'mol7aka') 
+			}),
+		('Card Identite National (CIN)', {
+				'fields': ('photo_1', 'photo_2')
+			})
+	)
 
 	def get_report_count(self, obj):
 		return obj.reports.count()
