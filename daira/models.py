@@ -12,6 +12,22 @@ class Individual(models.Model):
 		(FEMALE, _('Female'))
 	]
 
+	class SocialStatus(models.IntegerChoices):
+		UNKNOWN 	= (0, _('Unknown'))
+		SINGLE  	= (1, _('Single'))
+		MARRIED 	= (2, _('Married'))
+		DIVORCED 	= (3, _('Divorced'))
+
+	class IncomeLevel(models.IntegerChoices):
+		UNKNOWN 	= (0, _('Unknown'))
+		VERY_HIGH	= (1, _('Very high'))
+		HIGH 		= (2, _('High'))
+		MEDIUM  	= (3, _('Medium'))
+		LOW 		= (4, _('Low'))
+		VERY_LOW 	= (5, _('Very Low'))
+
+
+
 	CIN 		= models.CharField(max_length=10, primary_key=True)
 	firstname 	= models.CharField(max_length=32)
 	lastname 	= models.CharField(max_length=32)
@@ -26,6 +42,9 @@ class Individual(models.Model):
 	gender 		= models.IntegerField(choices=GENDER, default=MALE)
 	jobs		= models.ManyToManyField('Job', related_name='individuals')
 	handicapped = models.BooleanField(default=False)
+
+	social_status = models.IntegerField(choices=SocialStatus.choices, default=SocialStatus.UNKNOWN, verbose_name=_('Social status'))
+	income_level = models.IntegerField(choices=IncomeLevel.choices, default=IncomeLevel.UNKNOWN, verbose_name=_('Income level'))
 
 	relation 	= models.ManyToManyField('self', through='Relationship', through_fields=('individual_1', 'individual_2'))
 	mol7aka 	= models.ForeignKey('Mol7aka', on_delete=models.CASCADE, related_name='individuals', null=True, blank=True, verbose_name=_('Administrative attache'))

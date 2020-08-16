@@ -59,7 +59,7 @@ class IndividualAdmin(EmployeeRestrictionMixin, admin.ModelAdmin):
 
 	fieldsets = (
 		(None, {
-				'fields': ('CIN', ('firstname', 'ar_firstname'), ('lastname', 'ar_lastname'), ('born_d', 'born_m', 'born_y'), 'born_no_d_m', 'gender', 'handicapped', 'jobs', 'mol7aka') 
+				'fields': ('CIN', ('firstname', 'ar_firstname'), ('lastname', 'ar_lastname'), ('born_d', 'born_m', 'born_y'), 'born_no_d_m', 'gender', 'social_status', 'handicapped', 'income_level', 'jobs', 'mol7aka') 
 			}),
 		('Card Identite National (CIN)', {
 				'fields': ('photo_1', 'photo_2')
