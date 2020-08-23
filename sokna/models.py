@@ -33,7 +33,7 @@ class SoknaRequest(models.Model):
 	address 	= models.CharField(max_length=256, verbose_name=_('Current residence Address'))
 	mol7aka 	= models.ForeignKey(Mol7aka, on_delete=models.DO_NOTHING, null=True, verbose_name=_('Administrative attache'))
 	status 		= models.IntegerField(choices=STATUS.choices, default=STATUS.PENDING)
-	terms_of_use = models.BooleanField(default=False, validators=[TermsOfUse], verbose_name=_('I confess that all the above information are correct.'))
+	terms_of_use = models.BooleanField(default=True, validators=[TermsOfUse], verbose_name=_('I confess that all the above information are correct.'))
 
 	notes 		= models.TextField(null=True, blank=True, verbose_name=_('Notes'))
 
