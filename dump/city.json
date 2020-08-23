@@ -1,0 +1,443 @@
+[
+{
+  "model": "daira.city",
+  "pk": 1,
+  "fields": {
+    "city": "Fes"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 2,
+  "fields": {
+    "city": "Rabat"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 3,
+  "fields": {
+    "city": "Tangier"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 4,
+  "fields": {
+    "city": "Casablanca"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 5,
+  "fields": {
+    "city": "Marrakesh"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 6,
+  "fields": {
+    "city": "Sal\u00e9"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 7,
+  "fields": {
+    "city": "Oujda"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 8,
+  "fields": {
+    "city": "Agadir"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 9,
+  "fields": {
+    "city": "Tetouan"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 10,
+  "fields": {
+    "city": "Temara"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 11,
+  "fields": {
+    "city": "Mohammedia"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 12,
+  "fields": {
+    "city": "Khouribga"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 13,
+  "fields": {
+    "city": "El Jadida"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 14,
+  "fields": {
+    "city": "Beni Mellal"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 15,
+  "fields": {
+    "city": "Nador"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 16,
+  "fields": {
+    "city": "Dar Bouazza"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 17,
+  "fields": {
+    "city": "Taza"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 18,
+  "fields": {
+    "city": "Settat"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 19,
+  "fields": {
+    "city": "Berrechid"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 20,
+  "fields": {
+    "city": "Khemisset"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 21,
+  "fields": {
+    "city": "Inezgane"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 22,
+  "fields": {
+    "city": "Ksar El Kebir"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 23,
+  "fields": {
+    "city": "Larache"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 24,
+  "fields": {
+    "city": "Guelmim"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 25,
+  "fields": {
+    "city": "Khenifra"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 26,
+  "fields": {
+    "city": "Berkane"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 27,
+  "fields": {
+    "city": "Berkane"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 28,
+  "fields": {
+    "city": "Taourirt"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 29,
+  "fields": {
+    "city": "Bouskoura"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 30,
+  "fields": {
+    "city": "Fquih Ben Salah"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 31,
+  "fields": {
+    "city": "Dcheira El Jihadia"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 32,
+  "fields": {
+    "city": "Oued Zem"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 33,
+  "fields": {
+    "city": "El Kelaa Des Sraghna"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 34,
+  "fields": {
+    "city": "Sidi Slimane"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 35,
+  "fields": {
+    "city": "Errachidia"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 36,
+  "fields": {
+    "city": "Guercif"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 37,
+  "fields": {
+    "city": "Oulad Teima"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 38,
+  "fields": {
+    "city": "Ben Guerir"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 39,
+  "fields": {
+    "city": "Tifelt"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 40,
+  "fields": {
+    "city": "Lqliaa"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 41,
+  "fields": {
+    "city": "Taroudant"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 42,
+  "fields": {
+    "city": "Sefrou"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 43,
+  "fields": {
+    "city": "Essaouira"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 44,
+  "fields": {
+    "city": "Fnideq"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 45,
+  "fields": {
+    "city": "Sidi Kacem"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 46,
+  "fields": {
+    "city": "Tiznit"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 47,
+  "fields": {
+    "city": "Tan-Tan"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 48,
+  "fields": {
+    "city": "Ouarzazate"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 49,
+  "fields": {
+    "city": "Souk El Arbaa"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 50,
+  "fields": {
+    "city": "Youssoufia"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 51,
+  "fields": {
+    "city": "Lahraouyine"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 52,
+  "fields": {
+    "city": "Martil"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 53,
+  "fields": {
+    "city": "Ain Harrouda"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 54,
+  "fields": {
+    "city": "Skhirat"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 55,
+  "fields": {
+    "city": "Ouazzane"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 56,
+  "fields": {
+    "city": "Benslimane"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 57,
+  "fields": {
+    "city": "Al Hoceima"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 58,
+  "fields": {
+    "city": "Beni Ansar"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 59,
+  "fields": {
+    "city": "M'diq"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 60,
+  "fields": {
+    "city": "Sidi Bennour"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 61,
+  "fields": {
+    "city": "Midelt"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 62,
+  "fields": {
+    "city": "Azrou"
+  }
+},
+{
+  "model": "daira.city",
+  "pk": 63,
+  "fields": {
+    "city": "Drargua"
+  }
+}
+]
