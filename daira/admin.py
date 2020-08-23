@@ -49,8 +49,8 @@ class ReportInline(admin.TabularInline):
 
 @admin.register(Individual)
 class IndividualAdmin(EmployeeRestrictionMixin, admin.ModelAdmin):
-	list_display = ('CIN', 'firstname', 'lastname', 'handicapped', 'get_report_count', 'mol7aka', 'created')
-	list_filter = ('created', 'handicapped', 'mol7aka')
+	list_display = ('CIN', 'firstname', 'lastname', 'get_report_count', 'get_social_status', 'get_income_level', 'handicapped', 'mol7aka', 'created')
+	list_filter = ('created', 'mol7aka', 'handicapped', 'income_level', 'social_status')
 	search_fields = ('CIN', 'firstname', 'lastname')
 	filter_horizontal = ('jobs',)
 	inlines = (AddressInline, ReportInline)
@@ -70,6 +70,25 @@ class IndividualAdmin(EmployeeRestrictionMixin, admin.ModelAdmin):
 		return obj.reports.count()
 	get_report_count.short_description = 'Reports'
 
+
+	def get_income_level(self, obj=None):
+		if obj.income_level in (obj.IncomeLevel.HIGH, obj.IncomeLevel.VERY_HIGH):
+			return mark_safe(f'<span class="badge badge-pill badge-success">{obj.get_income_level_display().upper()}</span>')
+		elif obj.income_level == obj.IncomeLevel.MEDIUM:
+			return mark_safe(f'<span class="badge badge-pill badge-info">{obj.get_income_level_display().upper()}</span>')
+		elif obj.income_level in (obj.IncomeLevel.LOW, obj.IncomeLevel.VERY_LOW):
+			return mark_safe(f'<span class="badge badge-pill badge-danger">{obj.get_income_level_display().upper()}</span>')
+		else:
+			return '-'
+	get_income_level.short_description = 'income_level'
+
+	def get_social_status(self, obj=None):
+		if obj.social_status == obj.SocialStatus.UNKNOWN:
+			return '-'
+		else:
+			return mark_safe(f'<span class="badge badge-pill badge-secondary">{obj.get_social_status_display().upper()}</span>')
+	get_social_status.short_description = 'social_status'
+	
 	# def get_search_results(self, request, queryset, search_term):
 	# 	queryset, use_distinct = super().get_search_results(request, queryset, search_term)
 	# 	print('-> ', search_term)
