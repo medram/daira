@@ -14,14 +14,44 @@ from daira.models import Mol7aka
 def _user_profile_path(instance, filename):
     return f"profiles/{secrets.token_hex(16)}.png"
 
+
 class CustomUserManager(BaseUserManager):
-    pass
+    def create_user(self, CIN, password=None):
+        CIN = str(CIN).upper()
+        if not CIN:
+            raise ValueError('Users must have a CIN')
+
+        user = self.model(CIN=CIN)
+
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_staffuser(self, CIN, password):
+        user = self.create_user(
+            CIN,
+            password=password,
+        )
+        user.is_staff = True
+        user.save(using=self._db)
+        return user
+
+
+    def create_superuser(self, CIN, password):
+        user = self.create_user(
+            CIN,
+            password=password,
+        )
+        user.is_staff = True
+        user.is_superuser = True
+        user.save(using=self._db)
+        return user
 
 
 class CustomUser(AbstractUser):
     CIN     = models.CharField(max_length=16, unique=True)
     USERNAME_FIELD = 'CIN'
-    # REQUIRED_FIELDS = (,)
+    REQUIRED_FIELDS = []
 
     username = models.CharField(max_length=150, null=True, blank=True, default=timezone.now)
 
@@ -41,7 +71,7 @@ class CustomUser(AbstractUser):
     address = models.CharField(max_length=256, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True, blank=True)
 
-    # objects = CustomUserManager()
+    objects = CustomUserManager()
 
 
     def save(self, *args, **kwargs):
