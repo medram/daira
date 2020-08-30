@@ -56,6 +56,7 @@ class IndividualAdmin(EmployeeRestrictionMixin, admin.ModelAdmin):
 	inlines = (AddressInline, ReportInline)
 	ordering = ('-created',)
 	autocomplete_fields = ('mol7aka',)
+	date_hierarchy = 'created'
 
 	fieldsets = (
 		(None, {
