@@ -33,6 +33,14 @@
     		margin-left: 0.5rem;
     		flex-grow: 1;
 		}
+		.insight > .card .card-body {
+			padding: 0;
+		}
+
+		.card .card-body table tr {
+			background-color: transparent;
+		}
+
 		.font-size {
 			font-size: 1.2rem;	
 		}
@@ -46,7 +54,7 @@
 		  	</a>
 		  </div>
 		  <div class="card-body">
-		  	<table class="w-100">
+		  	<table class="table table-borderless text-white text-white w-100">
 		  		<tbody>
 			  		<tr>
 			  			<td><i class="fas fa-fw fa-male"></i> Males</td>
@@ -74,7 +82,7 @@
 		  	</a>
 		  </div>
 		  <div class="card-body display-4 text-left">
-		    <table class="w-100">
+		    <table class="table table-borderless text-white w-100">
 				<tbody>
 					<tr>
 						<td><i class="fas fa-fw fa-building"></i> Total Administrative attaches</td>
@@ -98,7 +106,7 @@
 		  	</a>
 		  </div>
 		  <div class="card-body">
-		  	<table class="w-100">
+		  	<table class="table table-borderless text-white w-100">
 		  		<tbody>
 		  			{% for job in insight.jobs %}
 			  			<tr>
@@ -122,7 +130,7 @@
 			  </div>
 			  <div class="card-body display-4 text-left">
 				<div class="text-center">{{ insight.reports.count }}</div>
-		      	<table class="w-100 mt-4">
+		      	<table class="table table-borderless text-white w-100 mt-4">
 		      		<thead>
 		      			<tr>
 		      				<th>{% trans "Administrative attaches" %}</th>
@@ -161,7 +169,7 @@
 			  		<i class="fas fa-fw fa-file"></i> Residential statements<br></div>
 			  	</a>
 			  <div class="card-body">
-				<table class="w-100">
+				<table class="table w-100">
 					<tbody>
 						<tr>
 							<td>Approved</td>
