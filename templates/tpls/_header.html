@@ -4,7 +4,13 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-info sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'daira:home' %}">{% get_setting "APP_NAME" default="Logo" %}</a>
+      <a class="navbar-brand" href="{% url 'daira:home' %}">
+        {% get_setting 'SITE_BRAND' as SITE_BRAND %}
+        {% if SITE_BRAND != '' %}
+          <img src="/media/{{ SITE_BRAND }}" width="50px" height="50px" class="ml-2 mr-2">
+        {% endif %}
+        {% get_setting "APP_NAME" default="Logo" %}
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

@@ -79,6 +79,11 @@ nav.sticky .module caption, .inline-group h2 {
 /* ######################### bunch of Admin UI fixes ######################### */
 #header {
 	padding: 15px 40px;
+	overflow: visible;
+}
+
+#header .dropdown-menu a.dropdown-item {
+	color: #212529;
 }
 
 td, th {

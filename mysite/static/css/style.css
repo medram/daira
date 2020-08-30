@@ -6,6 +6,11 @@
 	text-align: right;
 }
 
+body {
+	background-color: transparent !important;
+	background: url(../imgs/bg.jpg) repeat top left !important;	
+}
+
 .pageheader {
 	height: auto;
 	background-color: #15b0c0;
