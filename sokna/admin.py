@@ -13,6 +13,7 @@ from daira.mixins import EmployeeRestrictionMixin
 @admin.register(SoknaRequest)
 class SoknaRequestAdmin(EmployeeRestrictionMixin, admin.ModelAdmin):
 	list_display = ('id', 'CIN', 'fullname', 'get_gender', 'get_status', 'updated', 'created')
+	list_display_links = ('id', 'CIN', 'fullname')
 	list_filter = ('created', 'gender', 'status', 'mol7aka')
 	search_fields = ('id', 'CIN', 'firstname', 'lastname')
 	date_hierarchy = 'created'
