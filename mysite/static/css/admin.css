@@ -56,6 +56,10 @@ div.breadcrumbs {
 	border-radius: 5px;
 }
 
+nav.sticky .module caption, .inline-group h2 {
+	border-radius: 0;
+}
+
 .module h2 {
 	border-radius: 5px 5px 0 0;
 }
@@ -131,6 +135,12 @@ body {
 
 *[dir=rtl] h1 {
 	float: right;
+}
+
+.toggle-nav-sidebar {
+	border-top: none;
+	border-left: none;
+	border-bottom: none;
 }
 
 /* ######################### End of bunch of Admin UI fixes ######################### */
