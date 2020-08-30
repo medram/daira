@@ -92,6 +92,10 @@ class CustomUser(AbstractUser):
         except type(self).DoesNotExist:
             pass
 
+        # Try set the default avatar
+        if self.profile_image.name == '':
+            self.profile_image.name = 'profiles/default.jpg'
+
         # save profile
         super().save(*args, **kwargs)
 
@@ -112,7 +116,8 @@ class CustomUser(AbstractUser):
                 else:
                     # removing old profile image.
                     try:
-                        os.remove(old_user.profile_image.path)
+                        if old_user.profile_image.name != 'profiles/default.jpg':
+                            os.remove(old_user.profile_image.path)
                     except IOError:
                         pass
         except:
