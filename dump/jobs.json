@@ -1,0 +1,156 @@
+[
+{
+  "model": "daira.job",
+  "pk": 1,
+  "fields": {
+    "job_name": "\u0637\u0627\u0644\u0628"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 2,
+  "fields": {
+    "job_name": "\u0645\u0642\u0627\u0648\u0644"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 3,
+  "fields": {
+    "job_name": "\u0643\u0647\u0631\u0628\u0627\u0626\u064a"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 4,
+  "fields": {
+    "job_name": "\u0645\u0639\u0644\u0645"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 5,
+  "fields": {
+    "job_name": "\u0633\u0628\u0627\u0643"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 6,
+  "fields": {
+    "job_name": "\u0646\u062c\u0627\u0631"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 7,
+  "fields": {
+    "job_name": "\u0628\u0627\u0626\u0639 \u0645\u0648\u0627\u062f \u063a\u0630\u0627\u0626\u064a\u0629"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 8,
+  "fields": {
+    "job_name": "\u0639\u0627\u0645\u0644 \u0628\u0646\u0627\u0621"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 9,
+  "fields": {
+    "job_name": "\u0633\u0627\u0626\u0642 \u0633\u064a\u0627\u0631\u0629 \u0627\u062c\u0631\u0629"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 10,
+  "fields": {
+    "job_name": "\u0635\u0627\u0646\u0639 \u062a\u0642\u0644\u064a\u062f\u064a"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 11,
+  "fields": {
+    "job_name": "\u0637\u0627\u0644\u0628\u0629 \u062c\u0627\u0645\u0639\u064a\u0629"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 12,
+  "fields": {
+    "job_name": "\u0635\u0627\u062d\u0628 \u0645\u0642\u0647\u0649"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 13,
+  "fields": {
+    "job_name": "\u062c\u0632\u0627\u0631"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 14,
+  "fields": {
+    "job_name": "\u0631\u0628\u0629 \u0628\u064a\u062a"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 15,
+  "fields": {
+    "job_name": "\u0634\u0631\u0637\u064a"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 16,
+  "fields": {
+    "job_name": "\u062d\u062f\u0627\u062f"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 17,
+  "fields": {
+    "job_name": "\u0637\u0627\u0644\u0628\u0629"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 18,
+  "fields": {
+    "job_name": "\u0645\u0645\u0631\u0636\u0629"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 19,
+  "fields": {
+    "job_name": "\u0628\u0627\u0626\u0639"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 20,
+  "fields": {
+    "job_name": "\u0627\u0633\u062a\u0627\u0630\u0629"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 21,
+  "fields": {
+    "job_name": "\u062d\u0644\u0627\u0642"
+  }
+},
+{
+  "model": "daira.job",
+  "pk": 22,
+  "fields": {
+    "job_name": "\u062d\u0627\u0631\u0633 \u0633\u064a\u0627\u0631\u062a"
+  }
+}
+]
