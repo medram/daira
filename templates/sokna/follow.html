@@ -10,10 +10,10 @@
 			{% include "tpls/_messages.html" %}
 		</div>
 	</div>
-	<div class="row my-5" {% if LANGUAGE_CODE == 'ar' %}dir='rtl'{% else %}dir='ltr'{% endif %} >		
+	<div class="row my-5" {% if LANGUAGE_CODE == 'ar' %}dir='rtl'{% else %}dir='ltr'{% endif %} >
 		{% if sokna_request %}
 			<h1 class="text-muted mb-3"> {% trans "Hi" %} {{ sokna_request.firstname }} {{ sokna_request.lastname }}</h1>
-			<table class="table table-bordered table-striped">
+			<table class="table table-bordered table-striped bg-white">
 				<thead>
 					<tr>
 						<th>ID</th>
