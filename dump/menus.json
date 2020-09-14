@@ -1,0 +1,23 @@
+[
+{
+  "model": "pages.menu",
+  "pk": 1,
+  "fields": {
+    "name": "MAIN_MENU"
+  }
+},
+{
+  "model": "pages.menu",
+  "pk": 2,
+  "fields": {
+    "name": "FOOTER_MENU"
+  }
+},
+{
+  "model": "pages.menu",
+  "pk": 3,
+  "fields": {
+    "name": "TOP_MENU"
+  }
+}
+]
