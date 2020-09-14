@@ -1,6 +1,14 @@
 {% load i18n %}
 {% load extra_settings %}
-<footer class="container my-5">
+{% load pages_tags %}
+<footer class="bg-dark text-white pt-2 pb-5">
+	<div class="row mb-3">
+		<div class="col-md-12">
+			<ul class="nav text-center">
+				{% footer_menu %}
+			</ul>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-12 text-center">
 			{% now 'Y' as YEAR %}

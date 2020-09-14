@@ -16,10 +16,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     {% if page.title %}
-      <title>{{ page.title }}</title>
+      <title>{% get_setting "APP_NAME" default="Logo" %} - {{ page.title }}</title>
     {% else %}
-      <title>{% get_setting "APP_NAME" %}</title>
+      <title>{% get_setting "APP_NAME" default="Logo" %}</title>
     {% endif %}
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800&amp;display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">

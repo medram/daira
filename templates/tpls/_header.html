@@ -1,16 +1,29 @@
-{% load pages_tags %}
 {% load i18n %}
+{% load pages_tags %}
 {% load extra_settings %}
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info sticky-top">
+  <div id="header-box">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'daira:home' %}">
-        {% get_setting 'SITE_BRAND' as SITE_BRAND %}
-        {% if SITE_BRAND != '' %}
-          <img src="/media/{{ SITE_BRAND }}" width="50px" height="50px" class="ml-2 mr-2">
-        {% endif %}
-        {% get_setting "APP_NAME" default="Logo" %}
-      </a>
+      <div id="brand-logo">
+        <a class="navbar-brand" href="{% url 'daira:home' %}">
+          {% get_setting 'SITE_BRAND' as SITE_BRAND %}
+          {% if SITE_BRAND != '' %}
+            <img src="/media/{{ SITE_BRAND }}" width="100px" height="100px" class="ml-2 mr-2">
+          {% endif %}
+        </a>
+        <span>وزارة الداخلية<br>ولاية جهة فاس مكناس<br>عمالة فاس</span>
+      </div>
+
+      <div id="brand-name" class="pt-2">
+        <a href="{% url 'daira:home' %}">
+          {% get_setting "APP_NAME" default="Logo" %}
+        </a><br>
+        <span>منصة لطلب الشواهد الادارية عن بعد.</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+    <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -27,6 +40,7 @@
           </ul>
         </div>
       </div>
+
     </div>
   </nav>
 </header>

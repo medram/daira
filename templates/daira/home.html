@@ -7,19 +7,33 @@
 <!-- jumbotron -->
 <div class="jumbotron" style="background-color: rgba(0, 0, 0, .1);">
 	<div class="container text-center">
-<h1 class="display-4 mb-5">{% get_setting "APP_NAME" default="Logo" %} مرحباً بكم في موقع <br>! لطلب الشواهد الادارية عن بعد</h1>
+<h1 class="display-4">مرحباً بكم على منصة <span class="text-success">{% get_setting "APP_NAME" default="Logo" %}</span><br>! لطلب الشواهد الادارية عن بعد</h1>
 		<p class="lead mb-5">مرحباً بكم في موقع خدمة
-الشواهد الادارية التابعة لولاية جهة فاس مكناس - عمالة فاس
+الشواهد الادارية التابعة لولاية جهة فاس مكناس - عمالة فاس<br>
 هذه الخدمة تسمح لك بطلب الشواهد الإدارية  عن طريق الأنترنيت.</p>
 		<a class="btn btn-primary btn-lg" href="{% url 'sokna:index' %}" role="button">أطلب الآن</a>
 	</div>
 </div>
 <!-- cards -->
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-
-		</div>
-	</div>
+<div class="row bg-white">
+    <div class="container py-5">
+    	<div class="col-md-12 text-center"><h2>أخبار و مستجدات</h2></div>
+        <div class="col-md-12 mt-5">
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="box bg-success"><i class="fas fa-calendar-check"></i>مستجدات</div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="box bg-warning"><i class="far fa-handshake"></i>خدمات</div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="box bg-primary"><i class="far fa-newspaper"></i>أخبار</div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="box bg-info"><i class="far fa-lightbulb"></i>أسئلة وحلول</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

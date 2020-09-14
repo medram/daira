@@ -6,9 +6,14 @@
 	text-align: right;
 }
 
+html {
+	font-size: 1.2rem;
+}
+
 body {
+	font-family: Inter, 'Markazi Text', Arial, sans-serif;
 	background-color: transparent !important;
-	background: url(../imgs/bg.jpg) repeat top left !important;	
+	background: url(../imgs/bg.jpg) repeat top left !important;
 }
 
 .pageheader {
@@ -129,14 +134,91 @@ select.custom-select option {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-	color: rgba(255, 255, 255, 0.75);
+	color: rgba(255, 255, 255, 0.85);
 	padding: 1rem;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-	background-color: #12acc4;	
+	background-color: #27b848;
 }
 
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
 	color: rgba(255, 255, 255, 1);
+}
+
+footer .nav {
+	justify-content: center;
+}
+
+#header-box {
+	background-color: rgba(255, 255, 255, .5);
+}
+
+#header-box .container {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color: #333;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#header-box .container #brand-logo {
+	display: flex;
+	align-items: center;
+}
+
+#header-box .container #brand-name {
+	text-align: center;
+	flex-grow: 1;
+	align-self: stretch;
+}
+
+#header-box .container #brand-name > a {
+	font-size: 1.3rem;
+	font-weight: bolder;
+	text-decoration: none;
+	color: #28a745;
+}
+
+#header-box .container #brand-name > span {
+	font-size: 1.5rem;
+}
+
+.jumbotron {
+	margin-bottom: 0;
+}
+
+.box {
+	font-size: 2rem;
+	align-center: center;
+	/*border: 1px solid #CCC;*/
+	border-radius: .1em;
+	padding: 1em;
+	margin-bottom: 1em;
+	color: #FFF;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.box:hover {
+	background-image: linear-gradient(to top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)) !important;
+	background-image: --webkit--linear-gradient(to top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)) !important;
+	background-image: --ms--linear-gradient(to top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)) !important;
+	background-image: --o--linear-gradient(to top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)) !important;
+	background-image: --ms--linear-gradient(to top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)) !important;
+
+	transform: scale(1.1);
+}
+
+.box:hover > i {
+	transform: scale(2);
+}
+
+.box > i {
+	display: block;
+	padding: .5em;
+	transition: .2s;
 }
