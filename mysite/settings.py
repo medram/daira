@@ -246,7 +246,7 @@ SESSION_COOKIE_SECURE = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 ####################### My custom settings #######################
-APP_NAME = 'Chahadaty'
+APP_NAME = 'idarati'
 APP_VERSION = '0.2.0'
 POWRED_BY = 'Mohammed Ramouchy'
 POWRED_BY_URL = 'https://github.com/medram'
