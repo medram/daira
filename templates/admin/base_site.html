@@ -13,7 +13,7 @@
 		{% if SITE_BRAND != '' %}
 			<img src="/media/{{ SITE_BRAND }}" width="50px" height="50px" class="ml-2 mr-2">
 		{% endif %}
-		
+
 		<b>{% get_setting 'APP_NAME' default='Logo' %}</b> <small>v{% get_setting 'APP_VERSION' %}</small>
 	</a>
 </h1>
@@ -38,7 +38,7 @@
 	<div class="btn-group">
 		<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<img src="{{ user.profile_image.url }}" width="50" height="50" style="border-radius: 50%;">
-			{% translate 'Welcome,' %}
+			{% trans 'Welcome,' %}
 			<strong>{% firstof user.get_short_name user.get_username %}</strong>.
 		</button>
 		<div class="dropdown-menu dropdown-menu-right">
