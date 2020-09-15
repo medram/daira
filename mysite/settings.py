@@ -27,7 +27,7 @@ SECRET_KEY = '0(#42x64gp8mrpxq@$39r)jr@)55ovfe2dl%4kmp*f48&j*k+f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -247,7 +247,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 ####################### My custom settings #######################
 APP_NAME = 'idarati'
-APP_VERSION = '0.2.0'
+APP_VERSION = '0.3.0'
 POWRED_BY = 'Mohammed Ramouchy'
 POWRED_BY_URL = 'https://github.com/medram'
 POWRED_BY_EMAIL = 'mohammed@ramouchy.com'
