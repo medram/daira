@@ -11,44 +11,24 @@ from .serializers import SoknaSerializer, Mol7akaSerializer
 
 
 class SoknaList(generics.ListCreateAPIView):
-	queryset = SoknaRequest.objects.all()
-	serializer_class = SoknaSerializer
+    queryset = SoknaRequest.objects.all()
+    serializer_class = SoknaSerializer
+
+    def get_queryset(self):
+        queryset = SoknaRequest.objects.all()
+        CIN = self.request.query_params.get('user', None)
+        if CIN is not None:
+            queryset = queryset.filter(CIN=CIN)
+        else:
+            return []
+        return queryset
 
 
 class SoknaDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = SoknaRequest.objects.all()
-	serializer_class = SoknaSerializer
+    queryset = SoknaRequest.objects.all()
+    serializer_class = SoknaSerializer
 
 
 class Mol7akaList(generics.ListAPIView):
-	queryset = Mol7aka.objects.all()
-	serializer_class = Mol7akaSerializer 
-
-
-# @csrf_exempt
-# @api_view(['GET', 'POST'])
-# @parser_classes([MultiPartParser, FormParser])
-# def create_sokna(req):
-# 	if req.method == 'POST':
-# 		# print(req._request.POST)
-# 		# data = MultiPartParser().parse(req)
-# 		serializer = SoknaSerializer(data=req._request.POST)
-
-# 		if serializer.is_valid():
-# 			serializer.save()
-# 			return JsonResponse(serializer.data, status=201)
-# 		return JsonResponse(serializer.errors, status=400)
-
-
-# def sokna_detail(req, id):
-# 	try:
-# 		sokna = SoknaRequest.objects.get(pk=id)
-# 	except :
-# 		return HttpResponse(status=400)
-
-# 	serializer = SoknaSerializer(sokna)
-
-# 	if req.method == 'GET':
-# 		return JsonResponse(serializer.data, safe=False)
-
-# 	return HttpResponse(status=400)
+    queryset = Mol7aka.objects.all()
+    serializer_class = Mol7akaSerializer
