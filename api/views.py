@@ -16,7 +16,7 @@ class SoknaList(generics.ListCreateAPIView):
 
     def get_queryset(self):
         queryset = SoknaRequest.objects.all()
-        CIN = self.request.query_params.get('user', None)
+        CIN = self.request.query_params.get('cin', None)
         if CIN is not None:
             queryset = queryset.filter(CIN=CIN)
         else:
